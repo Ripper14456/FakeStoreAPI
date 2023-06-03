@@ -1,0 +1,13 @@
+.nav-text
+{
+  color:gray;
+}
+
+.nav-text:hover
+{
+  color:black;
+}
+
+.clicked {
+  color:black;
+}

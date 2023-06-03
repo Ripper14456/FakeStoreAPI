@@ -1,0 +1,15 @@
+.container-fluid
+{
+  height: 900px;
+  background-color: black;
+}
+
+.back
+{
+  background-image: url('../../assets/images/back.gif');
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 500px;
+}

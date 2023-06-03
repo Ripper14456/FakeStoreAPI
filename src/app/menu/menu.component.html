@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg col-12 navbar-light bg-light" style="height: 110px; filter: invert(97%)" xmlns="http://www.w3.org/1999/html">
+  <div class="collapse navbar-collapse d-flex justify-content-center " id="navbarNavAltMarkup">
+    <a class="col-2 d-flex justify-content-center pt-2" href="/"><img alt="image" src="assets/images/logo_transparent.png" style="height: 135px; width: 150px"></a>
+    <div class="navbar-nav d-flex justify-content-around col-9 ">
+      <a (click)="toggleHomeClicked()" [ngClass]="{'clicked': isHomeClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/"><h2>Home</h2></a>
+      <a (click)="toggleProductsClicked()" [ngClass]="{'clicked': isProductsClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/products"><h2>Products</h2></a>
+      <a (click)="toggleContactClicked()" [ngClass]="{'clicked': isContactClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/" ><h2>Contact</h2></a>
+    </div>
+  </div>
+</nav>
+
+
+
+
