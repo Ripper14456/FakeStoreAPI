@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ProductsComponent } from './products/products.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProductsComponent } from './products/products.component';
     FooterComponent,
     HomeComponent,
     ProductsComponent,
+    ContactComponent,
 
   ],
   imports: [

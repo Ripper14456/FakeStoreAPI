@@ -1,14 +1,32 @@
-<nav class="navbar navbar-expand-lg col-12 navbar-light bg-light" style="height: 110px; filter: invert(97%)" xmlns="http://www.w3.org/1999/html">
-  <div class="collapse navbar-collapse d-flex justify-content-center " id="navbarNavAltMarkup">
-    <a class="col-2 d-flex justify-content-center pt-2" href="/"><img alt="image" src="assets/images/logo_transparent.png" style="height: 135px; width: 150px"></a>
-    <div class="navbar-nav d-flex justify-content-around col-9 ">
-      <a (click)="toggleHomeClicked()" [ngClass]="{'clicked': isHomeClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/"><h2>Home</h2></a>
-      <a (click)="toggleProductsClicked()" [ngClass]="{'clicked': isProductsClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/products"><h2>Products</h2></a>
-      <a (click)="toggleContactClicked()" [ngClass]="{'clicked': isContactClicked}" class="nav-item nav-link col-2 text-center nav-text" href="/" ><h2>Contact</h2></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 150px; filter: invert(97%);
+  user-select: none" xmlns="http://www.w3.org/1999/html">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand col-2 d-flex justify-content-end" routerLink="/">
+      <img src="assets/images/logo_transparent.png" alt="image" style="max-width: 100%; height: 135px; width: 150px">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav col-12  d-flex justify-content-around">
+
+        <a (click)="toggleHomeClicked()" [ngClass]="{'clicked': isHomeClicked}" class="nav-link text-center nav-text" routerLink="/">
+          <h2>Home</h2>
+        </a>
+        <a (click)="toggleProductsClicked()" [ngClass]="{'clicked': isProductsClicked}" class="nav-link text-center nav-text" routerLink="/products">
+          <h2>Products</h2>
+        </a>
+        <a (click)="toggleContactClicked()" [ngClass]="{'clicked': isContactClicked}" class="nav-link text-center nav-text" routerLink="/">
+          <h2>Contact</h2>
+        </a>
+
+      </div>
     </div>
+
   </div>
 </nav>
-
-
-
-
