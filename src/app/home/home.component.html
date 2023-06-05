@@ -1,4 +1,76 @@
-<div class="container-fluid col-12 d-flex flex-column justify-content-center align-items-center">
+<div class="container-fluid col-12 d-flex flex-column justify-content-center align-items-center head" style="font-family: jost, serif">
   <h1 class="text-white position-absolute pb-3" style="font-size: 75px; user-select: none">WELCOME!</h1>
   <div class="back"></div>
 </div>
+
+<div class="page-container">
+  <div class="container-fluid col-12 d-flex flex-column align-items-center bg-light mid" style="filter: invert(97%); font-family: jost, serif">
+    <h1 class="text-black pb-3 pt-5" style="font-size: 50px; user-select: none">Our Services</h1>
+    <h4 class="pb-3 pt-1" style="font-size: 25px; user-select: none; color: gray; opacity: 0.8">We suggest you enjoy shopping and choose any clothes to your liking</h4>
+
+    <div class="row justify-content-around pt-5 pb-5" style="filter: invert(97%);">
+      <div class="col-lg-3 col-md-9 col-sm-9 d-flex flex-column justify-content-center align-items-center bg-dark clothes" (mouseenter)="FormalHighLight()" [ngStyle]="{ 'opacity': formal === true ? '0.7' : '1', 'transition': 'opacity 0.3s, transform 0.3s'}" (mouseleave)="resetHighlights()">
+        <img class="pt-3" src="../../assets/images/clothes1.jpg" style="height: 400px; width: 98%;">
+        <div class="pt-3 pb-4" style="width: 93%">
+          <h1 class="text-white text-center">Formal</h1>
+          <h3 class="text-white pt-2 text-center" style="opacity: 0.5">Style that will emphasize your confidence and authority</h3>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-9 col-sm-9 d-flex flex-column justify-content-center align-items-center bg-dark clothes" (mouseenter)="CasualHighLight()" [ngStyle]="{ 'opacity': casual === true ? '0.7' : '1', 'transition': 'opacity 0.3s, transform 0.3s'}" (mouseleave)="resetHighlights()" >
+        <img class="pt-3" src="../../assets/images/clothes2.jpg" style="height: 400px; width: 98%;">
+        <div class="pt-3 pb-4" style="width: 93%">
+          <h1 class="text-white text-center">Casual</h1>
+          <h3 class="text-white pt-2 text-center" style="opacity: 0.5">Style that emphasizes your individuality and ambition</h3>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-9 col-sm-9 d-flex flex-column justify-content-center align-items-center bg-dark clothes" (mouseenter)="SportHighLight()" [ngStyle]="{ 'opacity': sport === true ? '0.7' : '1', 'transition': 'opacity 0.3s, transform 0.3s'}" (mouseleave)="resetHighlights()">
+        <img class="pt-3"  src="../../assets/images/clothes3.jpg" style="height: 400px; width: 98%;">
+        <div class="pt-3 pb-4" style="width: 93%">
+          <h1 class="text-white text-center">Sport</h1>
+          <h3 class="text-white pt-2 text-center" style="opacity: 0.5">Style that will emphasize your beauty and power</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="about container-fluid col-12 d-flex flex-column align-items-center justify-content-center pt-5 pb-5" style="font-family: jost, serif; background-color: #212529">
+
+  <h1 class="text-white text-center pt-5 pb-5" style="font-size: 55px;">About Us</h1>
+
+  <div class="d-flex justify-content-around align-items-center" style="padding-bottom: 200px; padding-top: 75px">
+    <img src="../../assets/images/clothes5.jpg" class="col-5" style="height: 100%; width: 50%;">
+    <div class="pe-5 ps-5 col-5">
+      <h2 class="pe-5 ps-5 text-white">Welcome to our online clothing store! At FakeStore, we are passionate about fashion and dedicated to providing
+        you with the latest trends and styles.<br><br> Whether you're looking for casual wear, formal attire, or accessories to complete your look,
+        we have you covered.<br><br> Our team of fashion enthusiasts scours the market to handpick the finest garments
+        that meet our high standards of quality and style.</h2>
+
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-around align-items-center pt-5" style="padding-bottom: 200px">
+    <div class="pe-5 ps-5 col-5">
+      <h2 class="pe-5 ps-5 text-white">We understand that shopping for clothing can sometimes be overwhelming,
+        so we strive to create a seamless and enjoyable experience for our customers.<br><br>
+        Our user-friendly website allows you to browse through our extensive collection effortlessly,
+        with detailed product descriptions and images to help you make informed choices.</h2>
+    </div>
+    <img src="../../assets/images/clothes6.jpg" class="col-5" style="height: 100%; width: 50%;">
+  </div>
+
+  <div class="d-flex justify-content-around align-items-center pt-5" style="padding-bottom: 100px">
+    <img src="../../assets/images/clothes4.jpg" class="col-5" style="height: 100%; width: 50%;">
+    <div class="pe-5 ps-5 col-5">
+      <h2 class="pe-5 ps-5 text-white"> We prioritize comfort,
+        durability, and craftsmanship, so you can feel confident in the longevity of your purchase.
+        Our goal is to provide you with clothing that not only looks great but also feels great to wear.<br><br>
+        Thank you for choosing FakeStore as your go-to destination for all your clothing needs. </h2>
+    </div>
+  </div>
+</div>
+
+
+

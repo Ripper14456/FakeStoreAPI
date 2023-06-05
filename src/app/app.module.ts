@@ -9,7 +9,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { ProductsComponent } from './products/products.component';
-import { ContactComponent } from './contact/contact.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 @NgModule({
@@ -19,14 +22,16 @@ import { ContactComponent } from './contact/contact.component';
     FooterComponent,
     HomeComponent,
     ProductsComponent,
-    ContactComponent,
+    ProfileComponent,
+    LoginComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterOutlet,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
