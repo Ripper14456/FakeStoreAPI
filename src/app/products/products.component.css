@@ -2,3 +2,39 @@
 {
   background-color: #212529;
 }
+
+.buttons{
+  width: 170px;
+  height: 55px;
+  background-color: #282828;
+  color: white;
+  border: 1px solid #282828;
+  font-weight: 400;
+  font-family: jost, serif;
+}
+
+.buttons:hover
+{
+  transition: 0.2s;
+  background-color: #474747;
+  border-color: #474747;
+}
+
+
+.buttons-category{
+  width: 120px;
+  height: 47px;
+  background-color: #282828;
+  color: white;
+  border: 1px solid #282828;
+  font-weight: 400;
+  font-family: jost, serif;
+}
+
+.buttons-category:hover
+{
+  transition: 0.3s;
+  background-color: #474747;
+  border-color: #474747;
+}
+
