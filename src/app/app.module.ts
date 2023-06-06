@@ -12,6 +12,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -26,13 +27,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterOutlet,
-    AppRoutingModule,
-    NgbModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterOutlet,
+        AppRoutingModule,
+        NgbModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

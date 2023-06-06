@@ -21,9 +21,25 @@
         <a (click)="toggleProductsClicked()" [ngClass]="{'clicked': isProductsClicked}" class="nav-link text-center nav-text" routerLink="/products">
           <h2>Products</h2>
         </a>
-        <a (click)="toggleContactClicked()" [ngClass]="{'clicked': isContactClicked}" class="nav-link text-center nav-text" routerLink="/">
-          <h2>Login</h2>
-        </a>
+        <div [style.display]="auth ? 'none' : 'block'">
+          <a (click)="toggleLoginClicked()" [ngClass]="{'clicked': isLoginClicked}" class="nav-link text-center nav-text" routerLink="/login">
+            <h2>Login</h2>
+          </a>
+        </div>
+
+        <div [style.display]="auth ? 'block' : 'none'">
+          <a (click)="toggleProfileClicked()" [ngClass]="{'clicked': isProfileClicked}" class="nav-link text-center nav-text" routerLink="/profile">
+            <h2>Profile</h2>
+          </a>
+        </div>
+
+        <div [style.display]="auth ? 'block' : 'none'">
+          <a (click)="logout()" class="nav-link text-center nav-text" href="/">
+            <h2>Logout</h2>
+          </a>
+        </div>
+
+
 
       </div>
     </div>
