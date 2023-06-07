@@ -32,7 +32,8 @@
 }
 
 .container-fluid {
-  position: relative; /* Добавляем относительное позиционирование для обрезки */
+  position: relative;
+  overflow-x: hidden;
 }
 
 .about
@@ -41,10 +42,25 @@
 }
 
 .about img {
-  box-shadow: 0 8px 20px rgba(0, 0, 1, 1); /* Измените значения, чтобы настроить тень по своему усмотрению */
+  box-shadow: 0 8px 20px rgba(0, 0, 1, 1);
 }
 
+.head {
+  text-align: center;
+  padding: 20px;
+}
 
+.head h1 {
+  font-size: 75px;
+}
 
+@media (max-width: 576px) { /* Small devices (576px and below) */
+  .head {
+    padding: 10px;
+  }
 
+  .head h1 {
+    font-size: 50px;
+  }
+}
 

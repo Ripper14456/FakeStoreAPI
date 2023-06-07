@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-products',
@@ -7,17 +8,19 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./products.component.css']
 })
 
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
   constructor(private http: HttpClient) {}
   products: any = [];
   categories: any = [];
   sortDesc: boolean = false;
   sortAsc: boolean = true;
+  cartBlock: boolean = false;
+  cartOpen: boolean = false;
   ngOnInit() {
     this.getData();
     this.getCategories();
+    this.CartCheck();
   }
-
   getData() {
     this.http.get<Object[]>('https://fakestoreapi.com/products').subscribe(
       (data) => {
@@ -83,5 +86,22 @@ export class ProductsComponent {
       }
     );
   }
+
+  CartCheck() {
+    if (localStorage.getItem("token") != null) {
+      this.cartBlock = true;
+    }
+  }
+
+  OpenCart()
+  {
+    this.cartOpen = true;
+  }
+
+  CloseCart()
+  {
+    this.cartOpen = false;
+  }
+
 
 }

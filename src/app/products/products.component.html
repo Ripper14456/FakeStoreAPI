@@ -1,12 +1,41 @@
+<div [style.display]="cartBlock ? 'block' : 'none'">
+  <a routerLink="/products" class="text-decoration-none text-black d-flex justify-content-end" (click)="OpenCart()"  style="padding-right: 7%">
+    <div class="d-flex flex-column justify-content-center align-items-center position-absolute position-fixed rounded-circle bg-white" style="width: 5%; top: 22%; min-width: 75px">
+      <img src="assets/images/cart.png" alt="cart" class="user-select-none"  style="width: 60%; height: 10%">
+      <h4 style="font-family: jost, serif;">Cart</h4>
+    </div>
+  </a>
+</div>
+
+<div class="modal fade" [style.display]="cartOpen ? 'block' : 'none'" style="z-index: 100">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" [style.display]="cartOpen ? 'block' : 'none'" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid col-12 d-flex justify-content-center">
 
-  <div class="d-flex justify-content-center pt-5 pb-5 col-8">
-    <div class="pe-5 ps-5">
+  <div class="d-flex justify-content-center pt-5 pb-2 col-9 flex-wrap user-select-none">
+    <div class="pe-5 ps-5 p-3">
       <button class="pe-5 ps-5 buttons" (click)="SortDesc()" [style.display]="sortDesc ? 'none' : 'block'">Sort</button>
       <button class="pe-5 ps-5 buttons" (click)="SortAsc()"  [style.display]="sortAsc ? 'none' : 'block'">Sort</button>
     </div>
     <div *ngFor="let Categories of categories">
-      <div class="pe-5 ps-5">
+      <div class="pe-5 ps-5  p-3">
         <button class="pe-5 ps-5 buttons" (click)="SelectCategory(Categories)">{{Categories}}</button>
       </div>
     </div>
@@ -15,13 +44,13 @@
 </div>
 
 
-<div class="container-fluid d-flex flex-nowrap">
-  <div class="row ">
-    <div class="col-3 p-5 d-flex flex-column align-content-around justify-content-center" *ngFor="let product of products">
-      <div class="block" style="height: 700px; width: 385px">
+<div class="container-fluid d-flex flex-wrap justify-content-around">
+  <div class="row" style="width: 100%">
+    <div class="col-12 col-lg-3 col-md-6 col-sm-12 p-2 pt-5 pb-5 d-flex flex-column align-items-center justify-content-center" *ngFor="let product of products">
+      <div class="block" style="height: 700px; width: 100%; max-width: 385px">
 
-        <div class=" d-flex justify-content-center" style="border-radius: 0 30px 0 30px; border: black 3px solid">
-          <img [src]="product.image" style="height: 400px; width: 365px;" class="pt-1" alt="Product Image">
+        <div class="d-flex justify-content-center pt-1" style="border-radius: 0 30px 0 30px; border: black 3px solid">
+          <img [src]="product.image" style="height: 400px; width: 100%; max-width: 365px;" class="pt-1 user-select-none" alt="Product Image">
         </div>
         <div style="height: 16%" class="ps-4 pe-3 pb-5 pt-4">
           <h6 class="text-white" style="font-family: jost, serif">{{ product.title}}</h6>
@@ -29,13 +58,13 @@
 
         <div>
           <div class="d-flex ps-4 pt-3">
-            <img src="../../assets/images/category.png" alt="categories" style="width: 20px; height: 20px; filter: invert(100%)">
+            <img src="../../assets/images/category.png" alt="categories" class="user-select-none" style="width: 20px; height: 20px; filter: invert(100%)">
             <p class="ps-2 text-white" style="font-family: jost, serif">{{product.category}}</p>
           </div>
 
           <p class="text-white ps-4" style="font-family: jost, serif">Price: {{ product.price }}</p>
 
-          <ngb-rating [(rate)]="product.rating.rate" [max]="5" style="filter: invert(100%); height: 30px; scale: 1.5; padding-left: 31px"></ngb-rating>
+          <ngb-rating [(rate)]="product.rating.rate" [max]="5" class="user-select-none" style="filter: invert(100%); height: 30px; scale: 1.5; padding-left: 31px"></ngb-rating>
           <p class="text-white ps-4 pt-2" style="overflow: hidden">Rate: <b>{{product.rating.rate}}</b></p>
         </div>
 
@@ -43,4 +72,5 @@
     </div>
   </div>
 </div>
+
 
