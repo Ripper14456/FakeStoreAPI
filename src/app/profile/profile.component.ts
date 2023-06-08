@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   email: string = "";
   phone: string = "";
   city: String = "";
+  isEditing: boolean = false;
 
   setUser() {
     this.username = this.user.username;
@@ -73,5 +74,36 @@ export class ProfileComponent implements OnInit {
       return payload;
     }
     return null;
+  }
+
+
+
+  editProfile() {
+    this.isEditing = true;
+  }
+
+  confirmProfile() {
+    const userId = this.user.id;
+    const updatedUser = {
+      name: {
+        firstname: this.name.firstName.toLowerCase(),
+        lastname: this.name.lastName.toLowerCase()
+      },
+      email: this.email,
+      phone: this.phone,
+      address: {
+        city: this.city.toLowerCase()
+      }
+    };
+
+    this.http.put('https://fakestoreapi.com/users/' + userId, updatedUser).subscribe(
+      (data) => {
+        console.log('Profile updated successfully:', data);
+        this.isEditing = false;
+      },
+      (error) => {
+        console.log('Error updating profile:', error);
+      }
+    );
   }
 }

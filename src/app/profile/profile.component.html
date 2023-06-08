@@ -12,9 +12,9 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card mb-4">
+    <div class="row" style="height: 391px">
+      <div class="col-lg-4" >
+        <div class="card mb-4" style="height: 94%; padding-top: 5px">
           <div class="card-body text-center">
             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
                  class="rounded-circle img-fluid" style="width: 150px; user-select: none">
@@ -22,7 +22,8 @@
             <p class="text-muted mb-1">Welcome To Your Profile!</p>
             <p class="text-muted mb-4">How Are You Today?</p>
             <div class="d-flex justify-content-center mb-2">
-              <button type="button" class="btn btn-outline-primary ms-1">Edit</button>
+              <button type="button" class="btn btn-outline-primary ms-1" (click)="editProfile()" *ngIf="!isEditing">Edit</button>
+              <button type="button" class="btn btn-outline-primary ms-1" (click)="confirmProfile()" *ngIf="isEditing">Confirm</button>
             </div>
           </div>
         </div>
@@ -30,48 +31,54 @@
       <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body d-flex flex-column align-content-center justify-content-center">
-            <div class="row p-2">
+            <div class="row p-2" style="height: 45px">
               <div class="col-sm-3">
                 <p class="mb-0">Full Name</p>
               </div>
-              <div class="col-sm-9">
-                <p class="text-muted mb-0" *ngIf="name.firstName && name.lastName">{{ name.firstName }} {{ name.lastName }}</p>
+              <div class="col-sm-9 d-flex">
+                <p class="text-muted mb-0" *ngIf="!isEditing">{{ name.firstName }} {{ name.lastName }}</p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="name.firstName" *ngIf="isEditing">
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="name.lastName" *ngIf="isEditing">
               </div>
             </div>
             <hr>
-            <div class="row p-2">
+            <div class="row p-2" style="height: 45px">
               <div class="col-sm-3">
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">{{email}}</p>
+                <p class="text-muted mb-0" *ngIf="!isEditing">{{ email }}</p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="email" *ngIf="isEditing">
               </div>
             </div>
             <hr>
-            <div class="row p-2">
+            <div class="row p-2" style="height: 45px">
               <div class="col-sm-3">
                 <p class="mb-0">Phone</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">{{phone}}</p>
+                <p class="text-muted mb-0" *ngIf="!isEditing">{{ phone }}</p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="phone" *ngIf="isEditing">
               </div>
             </div>
             <hr>
-            <div class="row p-2">
+            <div class="row p-2" style="height: 45px">
               <div class="col-sm-3">
                 <p class="mb-0">Mobile</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">{{phone}}</p>
+                <p class="text-muted mb-0" *ngIf="!isEditing">{{ phone }}</p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="phone" *ngIf="isEditing">
               </div>
             </div>
             <hr>
-            <div class="row p-2">
+            <div class="row p-2" style="height: 45px">
               <div class="col-sm-3">
                 <p class="mb-0">City</p>
               </div>
-              <div class="col-sm-9 pb-1">
-                <p class="text-muted mb-0">{{city}}</p>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0" *ngIf="!isEditing">{{ city }}</p>
+                <input type="text" class="form-control form-control-sm" [(ngModel)]="city" *ngIf="isEditing">
               </div>
             </div>
           </div>
