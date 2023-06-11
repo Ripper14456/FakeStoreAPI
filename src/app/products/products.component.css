@@ -139,3 +139,47 @@
 }
 
 
+
+.product-container {
+  position: relative;
+}
+
+.btn-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.btn-outline-primary {
+  /* ... existing styles ... */
+  width: 70px; /* Adjust the width as needed */
+  height: 30px; /* Adjust the height as needed */
+  align-self: flex-end; /* Move the button to the right */
+}
+
+.product-block {
+  position: relative;
+}
+
+.product-container {
+  position: relative;
+}
+
+.btn-remove {
+  position: absolute;
+  padding-bottom: 3px;
+  padding-left: 1px;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+

@@ -137,19 +137,20 @@ export class ProductsComponent implements OnInit{
     if (token) {
       const decodedToken = this.decodeToken(token);
       const userId = decodedToken.sub;
-      console.log("user id = " + userId);
 
       this.http.get('https://fakestoreapi.com/carts/user/' + userId).subscribe(
         (data: any) => {
           const uniqueCartItems = [];
 
-          for (const cartItem of data.flatMap((cart: any) => cart.products)) {
-            const existingItemIndex = uniqueCartItems.findIndex(item => item.productId === cartItem.productId);
+          for (const cart of data) {
+            for (const cartItem of cart.products) {
+              const existingItemIndex = uniqueCartItems.findIndex(item => item.productId === cartItem.productId);
 
-            if (existingItemIndex !== -1) {
-              uniqueCartItems[existingItemIndex].quantity += cartItem.quantity;
-            } else {
-              uniqueCartItems.push(cartItem);
+              if (existingItemIndex !== -1) {
+                uniqueCartItems[existingItemIndex].quantity += cartItem.quantity;
+              } else {
+                uniqueCartItems.push({ productId: cartItem.productId, quantity: cartItem.quantity });
+              }
             }
           }
 
@@ -191,4 +192,43 @@ export class ProductsComponent implements OnInit{
     );
   }
 
+  addToCart(product: any) {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decodedToken = this.decodeToken(token);
+      const userId = decodedToken.sub;
+
+      const cartItem = {
+        userId: userId,
+        productId: product.id,
+        quantity: 1
+      };
+
+      const existingCartItem = this.cart.find(item => item.productId === product.id);
+
+      if (existingCartItem) {
+        existingCartItem.quantity += 1;
+        console.log('Quantity has changed');
+      } else {
+        this.cart.push({ ...product, ...cartItem });
+      }
+
+      this.http.post('https://fakestoreapi.com/carts', cartItem).subscribe(
+        (data) => {
+          console.log('Item added to cart:', data);
+        },
+        (error) => {
+          console.log('Error adding item to cart:', error);
+        }
+      );
+    } else {
+      console.log('User is not authenticated. Please log in to add items to the cart.');
+    }
+  }
+
+  removeFromCart(event: Event, index: number) {
+    event.stopPropagation(); // Add this line to stop event propagation
+    this.cart.splice(index, 1);
+  }
 }

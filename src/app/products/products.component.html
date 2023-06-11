@@ -40,6 +40,7 @@
                     <div class="d-flex w-100 p-3 pb-1">
                       <p class="product-title" style="font-family: jost, serif">{{ product.title }}</p>
                     </div>
+                    <button class="btn btn-outline-primary btn-remove" (click)="removeFromCart($event, i)">&times;</button>
                   </div>
 
                   <div class="d-flex justify-content-between align-items-end">
@@ -113,7 +114,10 @@
           <p class="text-white ps-4" style="font-family: jost, serif">Price: {{ product.price }}</p>
 
           <ngb-rating [(rate)]="product.rating.rate" [max]="5" class="user-select-none" style="filter: invert(100%); height: 30px; scale: 1.5; padding-left: 31px"></ngb-rating>
-          <p class="text-white ps-4 pt-2" style="overflow: hidden">Rate: <b>{{product.rating.rate}}</b></p>
+          <p class="text-white ps-4 pt-2" style="overflow: hidden">Rate: <b>{{product.rating.rate}}</b>
+            <button (click)="addToCart(product)" class="mb-1 ms-5 btn btn-primary">Add to Cart</button>
+          </p>
+
         </div>
 
       </div>
