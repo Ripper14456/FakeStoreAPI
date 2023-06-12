@@ -231,4 +231,15 @@ export class ProductsComponent implements OnInit{
     event.stopPropagation(); // Add this line to stop event propagation
     this.cart.splice(index, 1);
   }
+
+  Confirm() {
+    this.http.put('https://fakestoreapi.com/carts/7', this.cart).subscribe(
+      (data) => {
+        console.log('Cart item updated successfully:', data);
+      },
+      (error) => {
+        console.log('Error updating cart item:', error);
+      }
+    );
+  }
 }

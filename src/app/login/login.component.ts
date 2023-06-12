@@ -10,11 +10,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
 
   constructor(private http: HttpClient, private router: Router){}
-  username:String = "";
+  username:string = "";
   password:String = "";
 
-  login() {
+  loginError: boolean = false;
 
+  login() {
     const user = {
       username: this.username,
       password: this.password
@@ -30,7 +31,9 @@ export class LoginComponent {
         },
         (error) => {
           console.log(error);
+          this.loginError = true;
         }
       );
   }
+
 }
